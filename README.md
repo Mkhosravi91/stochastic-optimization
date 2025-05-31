@@ -83,3 +83,5 @@ D̃<sub>i,sc</sub> = D<sub>i</sub> × demandVar<sub>i,sc</sub>
         decisions and scenario-by-scenario recourse metrics.
         ---
 ## Mathematical Formulation
+You can download the full mathematical formulation (as a PDF) here:  
+[StochasticModel.pdf](StochasticModel.pdf)
