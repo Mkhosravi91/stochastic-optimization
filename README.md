@@ -49,7 +49,7 @@ We generate 10 000 such scenarios per product, reduce them via K-Means clusterin
 
 1. **Clone this repository**  
    ```bash
-   git clone https://github.com/YourUsername/my-gams-project.git
+   git clone https://github.com/Mkhosravi91/stochastic-optimization/my-gams-project.git
    cd my-gams-project
 ---
 ## Methodology / How It Works
