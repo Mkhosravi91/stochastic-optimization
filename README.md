@@ -5,18 +5,17 @@ A two‐stage stochastic programming model (implemented in GAMS) to determine th
 ---
 
 ## Table of Contents
-1. [Overview](#overview)  
-2. [File Structure](#file-structure)  
-3. [Prerequisites](#prerequisites)  
-4. [Installation & Setup](#installation--setup)  
-5. [Methodology / How It Works](#methodology--how-it-works)  
+1. [Overview](#overview)   
+2. [Prerequisites](#prerequisites)  
+3. [Installation & Setup](#installation--setup)  
+4. [Methodology / How It Works](#methodology--how-it-works)  
    1. [Two-Stage Stochastic Formulation](#two-stage-stochastic-formulation)  
    2. [Scenario Generation (Monte Carlo on Variance)](#scenario-generation-monte-carlo-on-variance)  
    3. [Scenario Reduction](#scenario-reduction)  
    4. [Putting Everything Together](#putting-everything-together)  
-6. [Mathematical Formulation](#mathematical-formulation)  
-7. [Usage](#usage)  
-8. [Author](#author)  
+5. [Mathematical Formulation](#mathematical-formulation)  
+6. [Usage](#usage)  
+ 
 
 ---
 
