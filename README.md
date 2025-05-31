@@ -75,7 +75,7 @@ D̃<sub>i,sc</sub> = D<sub>i</sub> × demandVar<sub>i,sc</sub>
 
 
 
-5. **Putting Everything Together**  
+ **Putting Everything Together**  
    • Summarize the pipeline:  
      1. To run the model, place the K-Means output file (`input_demands.xlsx`) in the same folder as `surplus.gms`. Then, from a terminal opened in that folder, execute:
         surplus.gms lo=2.  
