@@ -64,9 +64,9 @@ gams surplus.gms lo=2
 
 ### **Scenario Generation (Monte Carlo on Variance)**  
    • Demand is not sampled directly. Instead, for each product <code>i</code>, a variance factor is drawn from a Burr12 distribution. The realized demand for product <code>i</code> under scenario <code>sc</code> is calculated as:</p>
-<pre>
+
 D̃<sub>i,sc</sub> = D<sub>i</sub> × demandVar<sub>i,sc</sub>
-</pre> 
+ 
    • Using the Python notebook <code>KMEANS.ipynb</code>, 10 000 values of <code>D̃<sub>i,sc</sub></code> are generated for each product. These values are saved to <code>input_demands.xlsx</code>.</p>
 
 ### **Scenario Reduction**  
