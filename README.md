@@ -68,17 +68,17 @@ D̃<sub>i,sc</sub> = D<sub>i</sub> × demandVar<sub>i,sc</sub>
    • Using the Python notebook <code>KMEANS.ipynb</code>, 10 000 values of <code>D̃<sub>i,sc</sub></code> are generated for each product. These values are saved to <code>input_demands.xlsx</code>.</p>
 
 4. **Scenario Reduction**  
-   •<p>
-  A GAMS SAA with 10 000 scenarios is computationally intractable. To reduce the problem size, the 10 000 × |I| demand matrix is processed using K-Means clustering in Python. The 10 000 points are clustered into <strong>K ≈ 1000</strong> centroids, and each centroid’s weight is calculated as (cluster size) / 10 000. The resulting representative demands and their weights are saved for the GAMS model.
+   •<p> A GAMS SAA with 10 000 scenarios is computationally intractable. To reduce the problem size, the 10 000 × |I| demand matrix is processed using K-Means clustering in Python. The 10 000 points are clustered into <strong>K ≈ 1000</strong> centroids, and each centroid’s weight is calculated as (cluster size) / 10 000. The resulting representative demands and their weights are saved for the GAMS model.
 </p>
 
 
 
 5. **Putting Everything Together**  
    • Summarize the pipeline:  
-     1. Run `notebooks/KMEANS.ipynb` → produces `data/input_demands.xlsx` (10 000 draws) and then `gams/reduced_scenarios.xlsx` (K cluster representatives + weights).  
-     2. Navigate to the `gams/` folder, run `gams surplus.gms lo=2`.  
-     3. `surplus.gms` uses GDXXRW to import `D(i,sc)` and `p(sc)` from `reduced_scenarios.xlsx`, solves the deterministic equivalent SAA, and writes `gams/surplus_output.xlsx`.  
-   • Point the reader to “Usage” or “Inspect Results” to see how to open that final Excel.
+     1. To run the model, place the K-Means output file (`input_demands.xlsx`) in the same folder as `surplus.gms`. Then, from a terminal opened in that folder, execute:
+        surplus.gms lo=2`.  
+     2. GAMS will import `input_demands.xlsx`, solve the deterministic-equivalent SAA, and write the results to `surplus_output.xlsx` in the same directory. Open `surplus_output.xlsx` to view the optimal surplus 
+        decisions and scenario-by-scenario recourse metrics.
+
 
 ---
