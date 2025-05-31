@@ -61,14 +61,11 @@ We generate 10 000 such scenarios per product, reduce them via K-Means clusterin
    • Expected profit is maximized, but because demand is random, we approximate it using scenarios.
 
 2. **Scenario Generation (Monte Carlo on Variance)**  
-   • Explain that you don’t sample demand directly— you sample a variance factor from a Burr12 distribution for each product.  
-   • Show that realized demand \(\tilde{D}_{i,sc} = D_i \times \text{demandVar}_{i,sc}\).  
-   • Say “we draw 10 000 such \(\tilde{D}_{i,sc}\) values per product in `KMEANS.ipynb` and save them to `data/input_demands.xlsx`.”
-   <p>Demand is not sampled directly. Instead, for each product <code>i</code>, a variance factor is drawn from a Burr12 distribution. The realized demand for product <code>i</code> under scenario <code>sc</code> is calculated as:</p>
+   • Demand is not sampled directly. Instead, for each product <code>i</code>, a variance factor is drawn from a Burr12 distribution. The realized demand for product <code>i</code> under scenario <code>sc</code> is calculated as:</p>
 <pre>
 ~D<sub>i,sc</sub> = D<sub>i</sub> × demandVar<sub>i,sc</sub>
-</pre>
-<p>Using the Python notebook <code>KMEANS.ipynb</code>, 10 000 values of <code>~D<sub>i,sc</sub></code> are generated for each product. These values are saved to <code>data/input_demands.xlsx</code> (sheet “All_Scenarios”).</p>
+</pre> 
+   • Using the Python notebook <code>KMEANS.ipynb</code>, 10 000 values of <code>~D<sub>i,sc</sub></code> are generated for each product. These values are saved to <code>data/input_demands.xlsx</code> (sheet “All_Scenarios”).</p>
 
 4. **Scenario Reduction**  
    • Explain why 10 000 scenarios in GAMS is too large.  
