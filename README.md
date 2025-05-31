@@ -29,10 +29,6 @@ We generate 10 000 such scenarios per product, reduce them via K-Means clusterin
 
 ---
 
-## File Structure
-
-
----
 
 ## Prerequisites
 
