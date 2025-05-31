@@ -54,10 +54,9 @@ We generate 10 000 such scenarios per product, reduce them via K-Means clusterin
 ---
 ## Methodology / How It Works
 
-_Use this heading to explain your overall approach in words before diving into the detailed math._ In other words, here you give a non-technical (or lightly technical) overview:
 
 1. **Two-Stage Stochastic Formulation**  
-   • Describe what “first stage” means (choose surplus \(S_i\)), and what “second stage” means (compute sales/shortages once demand realizes).  
+   • In the first stage, the decision variable (surplus \(S_i\)), represents the surplus quantity added to product `i`’s nominal forecast `D_i`and the in the second stage variables are sales/shortages once demand realizes.  
    • Explain the key constraints (capacity, macro-target, group substitution).  
    • Mention that expected profit is maximized, but since demand is random, we approximate via scenarios.
 
