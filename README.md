@@ -14,7 +14,7 @@ A two‐stage stochastic programming model (implemented in GAMS) to determine th
    3. [Scenario Reduction](#scenario-reduction)  
    4. [Putting Everything Together](#putting-everything-together)  
 5. [Mathematical Formulation](#mathematical-formulation)  
-6. [Usage](#usage)  
+
  
 
 ---
