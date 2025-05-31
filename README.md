@@ -56,7 +56,8 @@ We generate 10 000 such scenarios per product, reduce them via K-Means clusterin
 
 
 1. **Two-Stage Stochastic Formulation**  
-   • In the first stage, the decision variable (surplus \(S_i\)), represents the surplus quantity added to product `i`’s nominal forecast `D_i`and the in the second stage variables are sales/shortages once demand realizes.  
+   • In the first stage, the decision variable (surplus), represents the surplus quantity added to product i nominal forecast Dᵢ
+ and the in the second stage variables are sales/shortages once demand realizes.  
    • Explain the key constraints (capacity, macro-target, group substitution).  
    • Mention that expected profit is maximized, but since demand is random, we approximate via scenarios.
 
