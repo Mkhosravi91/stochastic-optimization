@@ -52,7 +52,7 @@ We generate 10 000 such scenarios per product, reduce them via K-Means clusterin
 git clone https://github.com/Mkhosravi91/stochastic-optimization.git stoch-opt
 cd stoch-opt/gams
 gams surplus.gms lo=2  
-
+```
 ---
 ## Methodology / How It Works
 
