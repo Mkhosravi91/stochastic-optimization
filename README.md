@@ -51,3 +51,31 @@ We generate 10 000 such scenarios per product, reduce them via K-Means clusterin
    ```bash
    git clone https://github.com/YourUsername/my-gams-project.git
    cd my-gams-project
+---
+## Methodology / How It Works
+
+_Use this heading to explain your overall approach in words before diving into the detailed math._ In other words, here you give a non-technical (or lightly technical) overview:
+
+1. **Two-Stage Stochastic Formulation**  
+   • Describe what “first stage” means (choose surplus \(S_i\)), and what “second stage” means (compute sales/shortages once demand realizes).  
+   • Explain the key constraints (capacity, macro-target, group substitution).  
+   • Mention that expected profit is maximized, but since demand is random, we approximate via scenarios.
+
+2. **Scenario Generation (Monte Carlo on Variance)**  
+   • Explain that you don’t sample demand directly— you sample a variance factor from a Burr12 distribution for each product.  
+   • Show that realized demand \(\tilde{D}_{i,sc} = D_i \times \text{demandVar}_{i,sc}\).  
+   • Say “we draw 10 000 such \(\tilde{D}_{i,sc}\) values per product in `KMEANS.ipynb` and save them to `data/input_demands.xlsx`.”
+
+3. **Scenario Reduction**  
+   • Explain why 10 000 scenarios in GAMS is too large.  
+   • Describe that you feed those 10 000 rows into a K-Means clustering routine (in Python), cluster into \(K \approx 200\) (or whatever number) centroids, and record each centroid plus its weight (proportion of original scenarios).  
+   • Note that the output is `gams/reduced_scenarios.xlsx` with columns `[Scenario, D_P1, D_P2, …, D_Pn, Weight]`.
+
+4. **Putting Everything Together**  
+   • Summarize the pipeline:  
+     1. Run `notebooks/KMEANS.ipynb` → produces `data/input_demands.xlsx` (10 000 draws) and then `gams/reduced_scenarios.xlsx` (K cluster representatives + weights).  
+     2. Navigate to the `gams/` folder, run `gams surplus.gms lo=2`.  
+     3. `surplus.gms` uses GDXXRW to import `D(i,sc)` and `p(sc)` from `reduced_scenarios.xlsx`, solves the deterministic equivalent SAA, and writes `gams/surplus_output.xlsx`.  
+   • Point the reader to “Usage” or “Inspect Results” to see how to open that final Excel.
+
+---
