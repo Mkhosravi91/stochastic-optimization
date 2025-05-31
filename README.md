@@ -81,6 +81,9 @@ D̃<sub>i,sc</sub> = D<sub>i</sub> × demandVar<sub>i,sc</sub>
         surplus.gms lo=2.  
      2. GAMS will import `input_demands.xlsx`, solve the deterministic-equivalent SAA, and write the results to `surplus_output.xlsx` in the same directory. Open `surplus_output.xlsx` to view the optimal surplus 
         decisions and scenario-by-scenario recourse metrics.
+---
+## Mathematical Formulation
 
-
+You can download the full mathematical formulation (as a PDF) here:  
+[StochasticModel.pdf](StochasticModel.pdf)
 ---
