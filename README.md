@@ -56,22 +56,26 @@ We generate 10 000 such scenarios per product, reduce them via K-Means clusterin
 
 
 1. **Two-Stage Stochastic Formulation**  
-   • In the first stage, the decision variable (surplus), represents the surplus quantity added to product i nominal forecast Dᵢ
- and the in the second stage variables are sales/shortages once demand realizes.  
-   • Explain the key constraints (capacity, macro-target, group substitution).  
-   • Mention that expected profit is maximized, but since demand is random, we approximate via scenarios.
+   • In the first stage, the decision variable (surplus), represents the surplus quantity added to product i nominal forecast Dᵢ and the the second stage variables are sales/shortages, once demand realizes.  
+   • The key constraints are related to capacity, macro-target, and group substitution.  
+   • Expected profit is maximized, but because demand is random, we approximate it using scenarios.
 
 2. **Scenario Generation (Monte Carlo on Variance)**  
    • Explain that you don’t sample demand directly— you sample a variance factor from a Burr12 distribution for each product.  
    • Show that realized demand \(\tilde{D}_{i,sc} = D_i \times \text{demandVar}_{i,sc}\).  
    • Say “we draw 10 000 such \(\tilde{D}_{i,sc}\) values per product in `KMEANS.ipynb` and save them to `data/input_demands.xlsx`.”
+   <p>Demand is not sampled directly. Instead, for each product <code>i</code>, a variance factor is drawn from a Burr12 distribution. The realized demand for product <code>i</code> under scenario <code>sc</code> is calculated as:</p>
+<pre>
+~D<sub>i,sc</sub> = D<sub>i</sub> × demandVar<sub>i,sc</sub>
+</pre>
+<p>Using the Python notebook <code>KMEANS.ipynb</code>, 10 000 values of <code>~D<sub>i,sc</sub></code> are generated for each product. These values are saved to <code>data/input_demands.xlsx</code> (sheet “All_Scenarios”).</p>
 
-3. **Scenario Reduction**  
+4. **Scenario Reduction**  
    • Explain why 10 000 scenarios in GAMS is too large.  
    • Describe that you feed those 10 000 rows into a K-Means clustering routine (in Python), cluster into \(K \approx 200\) (or whatever number) centroids, and record each centroid plus its weight (proportion of original scenarios).  
    • Note that the output is `gams/reduced_scenarios.xlsx` with columns `[Scenario, D_P1, D_P2, …, D_Pn, Weight]`.
 
-4. **Putting Everything Together**  
+5. **Putting Everything Together**  
    • Summarize the pipeline:  
      1. Run `notebooks/KMEANS.ipynb` → produces `data/input_demands.xlsx` (10 000 draws) and then `gams/reduced_scenarios.xlsx` (K cluster representatives + weights).  
      2. Navigate to the `gams/` folder, run `gams surplus.gms lo=2`.  
