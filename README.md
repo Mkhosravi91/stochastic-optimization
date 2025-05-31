@@ -68,8 +68,8 @@ D̃<sub>i,sc</sub> = D<sub>i</sub> × demandVar<sub>i,sc</sub>
    • Using the Python notebook <code>KMEANS.ipynb</code>, 10 000 values of <code>D̃<sub>i,sc</sub></code> are generated for each product. These values are saved to <code>input_demands.xlsx</code>.</p>
 
 4. **Scenario Reduction**  
-   •<p> A GAMS SAA with 10 000 scenarios is computationally intractable. To reduce the problem size, the 10 000 × |I| demand matrix is processed using K-Means clustering in Python. The 10 000 points are clustered into <strong>K ≈ 1000</strong> centroids, and each centroid’s weight is calculated as (cluster size) / 10 000. The resulting representative demands and their weights are saved for the GAMS model.
-</p>
+   •A GAMS SAA with 10 000 scenarios is computationally intractable. To reduce the problem size, the 10 000 × |I| demand matrix is processed using K-Means clustering in Python. The 10 000 points are clustered into <strong>K ≈ 1000</strong> centroids, and each centroid’s weight is calculated as (cluster size) / 10 000. The resulting representative demands and their weights are saved for the GAMS model.
+
 
 
 
