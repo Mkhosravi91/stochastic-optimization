@@ -47,10 +47,12 @@ We generate 10 000 such scenarios per product, reduce them via K-Means clusterin
 
 ## Installation & Setup
 
-1. **Clone this repository**  
-   ```bash
-   git clone https://github.com/Mkhosravi91/stochastic-optimization.git
-   cd my-gams-project
+1. Clone the repo into a folder of your choice (e.g. “stoch-opt”):
+```bash
+git clone https://github.com/Mkhosravi91/stochastic-optimization.git stoch-opt
+cd stoch-opt/gams
+gams surplus.gms lo=2  
+
 ---
 ## Methodology / How It Works
 
