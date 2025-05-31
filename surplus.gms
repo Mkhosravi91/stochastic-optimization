@@ -6,7 +6,7 @@ scs(sc)
 
 sets
 np /1*1000/
-m /1*2/
+m /1*10/
 ;
 
 parameters
@@ -153,14 +153,14 @@ c8
 model sample
 /
 c1n
-*c2
-*c3
-*c4_1m
-*c4_2m
-*c5m
-*c6m
-*c7m
-*c8m
+c2
+c3
+c4_1m
+c4_2m
+c5m
+c6m
+c7m
+c8m
 /
 ;
 
@@ -176,11 +176,13 @@ ls = sm(m);
 fs = fm(m);
 
 scs(sc)$(ord(sc)>ls - 1 and ord(sc) < fs +1) = yes;
+p(scs) = 1/card(scs)
 
 solve sample using mip max zn;
 obj(m) = zn.l
 
 display
+p
 scs
 ls
 fs
