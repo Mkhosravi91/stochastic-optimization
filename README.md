@@ -22,21 +22,14 @@ A two‐stage stochastic programming model (implemented in GAMS) to determine th
 
 ## Overview
 
-In this project, we seek to identify—for each product—the optimal “surplus” quantity \(S_i\) to add to its nominal forecast \(D_i\), so as to maximize expected profit margins under demand uncertainty. Rather than sampling absolute demand directly, we sample a **variance multiplier** \(\mathrm{demandVar}_{i,sc}\) from a Burr12 distribution and compute realized demand:
+In this project, we identify—for each product—the optimal “surplus” quantity \(S_i\) to add to its nominal forecast \(D_i\), so as to maximize expected profit under demand uncertainty. Rather than sampling absolute demand directly, we sample a variance multiplier \(\mathrm{demandVar}_{i,sc}\) from a Burr12 distribution and compute realized demand:
 
-\[
-\tilde{D}_{i,sc} \;=\; D_i \;\times\; \mathrm{demandVar}_{i,sc}.
-\]
+$$
+\tilde{D}_{\,i,sc} \;=\; D_{\,i} \times \mathrm{demandVar}_{\,i,sc}\,.
+$$
 
-We generate 10 000 such scenarios per product, reduce them via K-Means clustering to \(K\approx200\) representative scenarios (with associated weights), and then solve the deterministic equivalent SAA model in GAMS (`surplus.gms`). The final output is an Excel file containing optimal surplus decisions and scenario‐by‐scenario recourse metrics.
+We generate 10 000 such scenarios per product, reduce them via K-Means clustering to \(K \approx 200\) representative scenarios (with associated weights), and then solve the deterministic-equivalent SAA model in GAMS (`surplus.gms`). The final output is an Excel file containing optimal surplus decisions and scenario-by-scenario recourse metrics.
 
-In this project, we identify—for each product—the optimal “surplus” quantity \(S_i\) to add to its nominal forecast \(D_i\), so as to maximize expected profit under demand uncertainty. Rather than sampling absolute demand directly, we sample a **variance multiplier** \(\text{demandVar}_{i,sc}\) from a Burr12 distribution and compute realized demand:
-
-\[
-\tilde{D}_{i,sc} \;=\; D_i \times \text{demandVar}_{i,sc}.
-\]
-
-We generate 10 000 such scenarios per product, reduce them via K-Means clustering to \(K\approx200\) representative scenarios (with associated weights), and then solve the deterministic‐equivalent SAA model in GAMS (`surplus.gms`). The final output is an Excel file containing optimal surplus decisions and scenario‐by‐scenario recourse metrics.
 
 ---
 
