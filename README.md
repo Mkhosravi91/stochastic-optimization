@@ -88,8 +88,7 @@ D̃<sub>i,sc</sub> = D<sub>i</sub> × demandVar<sub>i,sc</sub>
      'surplus.gms lo=2'
 
      
-   2. GAMS will import `inputs.xlsx`, solve the deterministic-equivalent SAA, and write the results to `surpluses.xlsx` in the same directory. Open `surpluses.xlsx` to view the optimal surplus 
-        decisions and scenario-by-scenario recourse metrics.
+   2. GAMS will import `inputs.xlsx`, solve the deterministic-equivalent SAA, and write the results to output_sales.gdx file. To export results to Excel from GAMS, first navigate to the projdir folder and drag the output_sales.gdx file into the GAMS IDE. Once the GDX file is loaded, right-click on the opened window and select "Write", followed by "Write Symbol to Excel". Then, choose the desired variable (in this case, surplus) to extract and export its values to an Excel file. This procedure enables structured and accessible presentation of the model's output data for further analysis. Open `surpluses.xlsx` to view the optimal surplus decisions and scenario-by-scenario recourse metrics.
 
 ## Mathematical Formulation
 You can download the full mathematical formulation (as a PDF) here:  
