@@ -80,7 +80,7 @@ D̃<sub>i,sc</sub> = D<sub>i</sub> × demandVar<sub>i,sc</sub>
    • Summarize the pipeline:  
      1. To run the model, place the K-Means output file (`inputs.xlsx`) in the same folder as `surplus.gms`. Then, from a terminal opened in that folder, execute:
         surplus.gms lo=2.  
-     2. GAMS will import `inputs.xlsx`, solve the deterministic-equivalent SAA, and write the results to `surplus_output.xlsx` in the same directory. Open `surplus_output.xlsx` to view the optimal surplus 
+     2. GAMS will import `inputs.xlsx`, solve the deterministic-equivalent SAA, and write the results to `surpluses.xlsx` in the same directory. Open `surpluses.xlsx` to view the optimal surplus 
         decisions and scenario-by-scenario recourse metrics.
 
 ## Mathematical Formulation
@@ -91,6 +91,6 @@ You can download the full mathematical formulation (as a PDF) here:
 
 The final output files are available in the [`results_folder/`](results_folder/) directory:
 
-- [`surplus_solutions.xlsx`](results_folder/surplus.xlsx)  
-- [`diagram.png`](results_folder/objective_function.png)
+- [`surplus_solutions.xlsx`](results_folder/surpluses.xlsx)  
+- [`diagram.png`](results_folder/objective_value.png)
 
