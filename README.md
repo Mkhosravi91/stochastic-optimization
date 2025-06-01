@@ -58,7 +58,7 @@ gams surplus.gms lo=2
 
 
 ### **Two-Stage Stochastic Formulation**  
-   • In the first stage, the decision variable (surplus), represents the surplus quantity added to product i nominal forecast Dᵢ and the the second stage variables are sales/shortages, once demand realizes.  
+   • Surplus variable is the only first-stage decision variables, represents the surplus quantity added to product i nominal forecast Dᵢ and the the second stage variables are sales/shortages, once demand realizes.  
    • The key constraints are related to capacity, macro-target, and group substitution.  
    • Expected profit is maximized, but because demand is random, we approximate it using scenarios.
 
@@ -67,19 +67,20 @@ gams surplus.gms lo=2
 
 D̃<sub>i,sc</sub> = D<sub>i</sub> × demandVar<sub>i,sc</sub>
  
-   • Using the Python notebook <code>KMEANS.ipynb</code>, 10 000 values of <code>D̃<sub>i,sc</sub></code> are generated for each product. These values are saved to <code>input_demands.xlsx</code>.</p>
+   • Using the Python notebook <code>KMEANS.ipynb</code>, 10 000 values of <code>D̃<sub>i,sc</sub></code> are generated for each product using Monte Carlo simulation. To reduce the problem size, the 10 000 × |I| demand matrix is processed using K-Means clustering in Python. The 10 000 points are clustered into <strong>K ≈ 1000</strong> centroids, and each centroid’s weight is calculated as (cluster size) / 10 000. The resulting representative demands and their weights are saved for the GAMS model to <code>inputs.xlsx</code>.</p>
 
 ### **Scenario Reduction**  
-   •A GAMS SAA with 10 000 scenarios is computationally intractable. To reduce the problem size, the 10 000 × |I| demand matrix is processed using K-Means clustering in Python. The 10 000 points are clustered into <strong>K ≈ 1000</strong> centroids, and each centroid’s weight is calculated as (cluster size) / 10 000. The resulting representative demands and their weights are saved for the GAMS model.
+   • Our Stochasting Programming model with 1000 scenarios is computationally intractable so we apply Sample Average Approximation (SAA) by solving many much smaller subsamples of size 𝑁 ≪ 100 and then statistically 
+     combining their objective estimates against a larger reference set. This lets us approximate the true optimal value with far less computational effort.
 
 
 
 
 ### **Putting Everything Together**  
    • Summarize the pipeline:  
-     1. To run the model, place the K-Means output file (`input_demands.xlsx`) in the same folder as `surplus.gms`. Then, from a terminal opened in that folder, execute:
+     1. To run the model, place the K-Means output file (`inputs.xlsx`) in the same folder as `surplus.gms`. Then, from a terminal opened in that folder, execute:
         surplus.gms lo=2.  
-     2. GAMS will import `input_demands.xlsx`, solve the deterministic-equivalent SAA, and write the results to `surplus_output.xlsx` in the same directory. Open `surplus_output.xlsx` to view the optimal surplus 
+     2. GAMS will import `inputs.xlsx`, solve the deterministic-equivalent SAA, and write the results to `surplus_output.xlsx` in the same directory. Open `surplus_output.xlsx` to view the optimal surplus 
         decisions and scenario-by-scenario recourse metrics.
 
 ## Mathematical Formulation
