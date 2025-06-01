@@ -91,6 +91,6 @@ You can download the full mathematical formulation (as a PDF) here:
 
 The final output files are available in the [`results_folder/`](results_folder/) directory:
 
-- [`surplus_solutions.xlsx`](results_folder/surpluses.xlsx)  
-- [`diagram.png`](results_folder/objective_value.png)
+- [`surpluses.xlsx`](results_folder/surpluses.xlsx)  
+- [`objective_value.png`](results_folder/objective_value.png)
 
